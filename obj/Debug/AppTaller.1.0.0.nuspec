@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AppTaller</id>
+    <version>1.0.0</version>
+    <authors>AppTaller</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net5.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\Jesus-nb\source\repos\AppTaller\bin\Debug\net5.0-windows\AppTaller.runtimeconfig.json" target="lib\net5.0-windows7.0\AppTaller.runtimeconfig.json" />
+    <file src="C:\Users\Jesus-nb\source\repos\AppTaller\bin\Debug\net5.0-windows\AppTaller.dll" target="lib\net5.0-windows7.0\AppTaller.dll" />
+  </files>
+</package>
