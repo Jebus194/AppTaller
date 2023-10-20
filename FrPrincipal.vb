@@ -2,6 +2,14 @@
 'Imports CapaPersistencia
 Public Class FrPrincipal
 
+    'variables globales
+
+    Dim RstSoloAutos As DataTable
+    Dim RstSoloMotos As DataTable
+    Dim RstRepuesto As DataTable
+    Dim RstCliente As DataTable
+
+
     Public Enum Tipo_auto
         Compacto
         Sedán
@@ -18,10 +26,10 @@ Public Class FrPrincipal
         Presupuestos = 6
     End Enum
 
-
-
-
-
+    Private Sub Cancelar_btn_Click(sender As Object, e As EventArgs) Handles Cancelar_btn.Click
+        'cierro ventana
+        Me.Close()
+    End Sub
 
     Private Sub Agregar_btn_Click(sender As Object, e As EventArgs) Handles Agregar_btn.Click
         ValidarAlta()
@@ -113,9 +121,14 @@ Public Class FrPrincipal
             TabGeneral.TabPages.Remove(ta)
         Next
         TabGeneral.TabPages.Add(Inicio)
-        'invisiblizar tabs
-
+        'Cargar DT y DGV
+        Loaddata()
+        'ExpandoColumnas()
     End Sub
+    'Private Sub ExpandoColumnas()
+
+    'End Sub
+
 #End Region
 #Region "Movimiento de pestañas"
     Private Sub TabGeneral_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabGeneral.SelectedIndexChanged
@@ -201,35 +214,39 @@ Public Class FrPrincipal
 #End Region
 #Region "SqlArea"
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim query As String = "Select * from VehiAutoMoto"
-        Dim Rst As DataTable
-        Dim txn As New SqlArea()
+    Private Sub Loaddata()
+        Dim QueryAutos As String = "Select * from SoloAutos"
+        Dim QueryMotos As String = "Select * from SoloMotos"
+        Dim QueryClientes As String = "Select * from clientes"
+        Dim QueryRepuestos As String = "Select * from Repuestos"
 
-        txn.EjecutoQuery("Select * from Clientes")
+        Dim txnA, txnM, txnC, txnR As New SqlArea()
+
+        RstSoloAutos = txnA.EjecutoQuery(QueryAutos)
+        RstSoloMotos = txnM.EjecutoQuery(QueryMotos)
+        RstCliente = txnC.EjecutoQuery(QueryClientes)
+        RstRepuesto = txnR.EjecutoQuery(QueryRepuestos)
+
+        'cargo y actualizo datagrid
+        SoloAutos_dgv.DataSource = RstSoloAutos
+        SoloAutos_dgv.Refresh()
+
+        SoloMotos_dgv.DataSource = RstSoloMotos
+        SoloMotos_dgv.Refresh()
+
+        clientes_dgv.DataSource = RstCliente
+        clientes_dgv.Refresh()
+
+        Repuestos_dgv.DataSource = RstRepuesto
+        Repuestos_dgv.Refresh()
+        'cargo combobox
+        Dim valoresEnum As Array = [Enum].GetValues(GetType(Tipo_auto))
+        For Each valor As Tipo_auto In valoresEnum
+            Tipo_cbo.Items.Add(valor)
+        Next
     End Sub
-    'Private Sub LoadData(ByRef Resultado As DataTable, ByRef Query As String)
-
-    '    Dim miConexion As New ConexionSQLServer()
-
-    '    ' Abre la conexión
-    '    miConexion.AbrirConexion()
-
-    '    ' Ejecuta una consulta
-    '    Dim consulta As String = Query
-    '    Resultado = miConexion.EjecutarConsulta(consulta)
-
-    '    ' Cierra la conexión
-    '    miConexion.CerrarConexion()
-
-    'End Sub
-
-
 
 #End Region
-
-    'prueba conecion
-
 
 
 End Class

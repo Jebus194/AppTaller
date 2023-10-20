@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jesus-nb\\source\\repos\\AppTaller\\CapaPresentación.vbproj": {}
+    "C:\\Users\\Jesus-nb\\Source\\Repos\\AppTaller\\CapaPresentación.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\Jesus-nb\\source\\repos\\AppTaller\\CapaPresentación.vbproj": {
+    "C:\\Users\\Jesus-nb\\Source\\Repos\\AppTaller\\CapaPresentación.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jesus-nb\\source\\repos\\AppTaller\\CapaPresentación.vbproj",
+        "projectUniqueName": "C:\\Users\\Jesus-nb\\Source\\Repos\\AppTaller\\CapaPresentación.vbproj",
         "projectName": "CapaPresentación",
-        "projectPath": "C:\\Users\\Jesus-nb\\source\\repos\\AppTaller\\CapaPresentación.vbproj",
+        "projectPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\AppTaller\\CapaPresentación.vbproj",
         "packagesPath": "C:\\Users\\Jesus-nb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jesus-nb\\source\\repos\\AppTaller\\obj\\",
+        "outputPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\AppTaller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jesus-nb\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Jesus-nb\\source\\repos\\CapaLogica\\CapaLogica.vbproj": {
-                "projectPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaLogica\\CapaLogica.vbproj"
+              "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaLogica\\CapaLogica.vbproj": {
+                "projectPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaLogica\\CapaLogica.vbproj"
               },
-              "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj": {
-                "projectPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj"
+              "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj": {
+                "projectPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\Jesus-nb\\source\\repos\\CapaLogica\\CapaLogica.vbproj": {
+    "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaLogica\\CapaLogica.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jesus-nb\\source\\repos\\CapaLogica\\CapaLogica.vbproj",
+        "projectUniqueName": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaLogica\\CapaLogica.vbproj",
         "projectName": "CapaLogica",
-        "projectPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaLogica\\CapaLogica.vbproj",
+        "projectPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaLogica\\CapaLogica.vbproj",
         "packagesPath": "C:\\Users\\Jesus-nb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaLogica\\obj\\",
+        "outputPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaLogica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jesus-nb\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +92,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj": {
-                "projectPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj"
+              "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj": {
+                "projectPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj"
               }
             }
           }
@@ -126,14 +126,14 @@
         }
       }
     },
-    "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj": {
+    "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj",
+        "projectUniqueName": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj",
         "projectName": "CapaPersistencia",
-        "projectPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\CapaPersistencia.vbproj",
+        "projectPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\CapaPersistencia.vbproj",
         "packagesPath": "C:\\Users\\Jesus-nb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jesus-nb\\source\\repos\\CapaPersistencia\\obj\\",
+        "outputPath": "C:\\Users\\Jesus-nb\\Source\\Repos\\CapaPersistencia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jesus-nb\\AppData\\Roaming\\NuGet\\NuGet.Config",

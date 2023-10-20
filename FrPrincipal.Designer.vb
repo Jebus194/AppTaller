@@ -41,18 +41,9 @@ Partial Class FrPrincipal
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ID_Vehiculo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Patente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ID_Auto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ID_Moto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cant_Puertas = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cilindrada = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SoloAutos_dgv = New System.Windows.Forms.DataGridView()
         Me.Cliente = New System.Windows.Forms.TabPage()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.clientes_dgv = New System.Windows.Forms.DataGridView()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Clienteadd_btn = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -62,7 +53,7 @@ Partial Class FrPrincipal
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Repuesto = New System.Windows.Forms.TabPage()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.Repuestos_dgv = New System.Windows.Forms.DataGridView()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.RepuestoAdd_btn = New System.Windows.Forms.Button()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
@@ -102,6 +93,7 @@ Partial Class FrPrincipal
         Me.Repuestos_btn = New System.Windows.Forms.Button()
         Me.Clientes_btn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Cancelar_btn = New System.Windows.Forms.Button()
         Me.Aceptar_btn = New System.Windows.Forms.Button()
         Me.ControlInterno_pnl = New System.Windows.Forms.Panel()
@@ -111,17 +103,19 @@ Partial Class FrPrincipal
         Me.Ini_opt = New System.Windows.Forms.RadioButton()
         Me.cli_opt = New System.Windows.Forms.RadioButton()
         Me.veh_opt = New System.Windows.Forms.RadioButton()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.SoloMotos_dgv = New System.Windows.Forms.DataGridView()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.Inicio.SuspendLayout()
         Me.Vehiculo.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SoloAutos_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Cliente.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.clientes_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         Me.Repuesto.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Repuestos_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Desperfecto.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -130,6 +124,7 @@ Partial Class FrPrincipal
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.ControlInterno_pnl.SuspendLayout()
+        CType(Me.SoloMotos_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -167,7 +162,10 @@ Partial Class FrPrincipal
         'Vehiculo
         '
         Me.Vehiculo.Controls.Add(Me.Panel3)
-        Me.Vehiculo.Controls.Add(Me.DataGridView1)
+        Me.Vehiculo.Controls.Add(Me.SoloMotos_dgv)
+        Me.Vehiculo.Controls.Add(Me.SoloAutos_dgv)
+        Me.Vehiculo.Controls.Add(Me.Label20)
+        Me.Vehiculo.Controls.Add(Me.Label19)
         Me.Vehiculo.Location = New System.Drawing.Point(4, 24)
         Me.Vehiculo.Name = "Vehiculo"
         Me.Vehiculo.Padding = New System.Windows.Forms.Padding(3)
@@ -320,70 +318,18 @@ Partial Class FrPrincipal
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Patente:"
         '
-        'DataGridView1
+        'SoloAutos_dgv
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_Vehiculo, Me.Patente, Me.Modelo, Me.Marca, Me.ID_Auto, Me.ID_Moto, Me.Tipo, Me.Cant_Puertas, Me.Cilindrada})
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 124)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.Size = New System.Drawing.Size(945, 367)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'ID_Vehiculo
-        '
-        Me.ID_Vehiculo.HeaderText = "ID_Vehiculo"
-        Me.ID_Vehiculo.Name = "ID_Vehiculo"
-        Me.ID_Vehiculo.ReadOnly = True
-        Me.ID_Vehiculo.Visible = False
-        '
-        'Patente
-        '
-        Me.Patente.HeaderText = "Patente"
-        Me.Patente.Name = "Patente"
-        Me.Patente.ReadOnly = True
-        '
-        'Modelo
-        '
-        Me.Modelo.HeaderText = "Modelo"
-        Me.Modelo.Name = "Modelo"
-        Me.Modelo.ReadOnly = True
-        '
-        'Marca
-        '
-        Me.Marca.HeaderText = "Marca"
-        Me.Marca.Name = "Marca"
-        '
-        'ID_Auto
-        '
-        Me.ID_Auto.HeaderText = "ID_Auto"
-        Me.ID_Auto.Name = "ID_Auto"
-        Me.ID_Auto.Visible = False
-        '
-        'ID_Moto
-        '
-        Me.ID_Moto.HeaderText = "ID_Moto"
-        Me.ID_Moto.Name = "ID_Moto"
-        Me.ID_Moto.Visible = False
-        '
-        'Tipo
-        '
-        Me.Tipo.HeaderText = "Tipo"
-        Me.Tipo.Name = "Tipo"
-        '
-        'Cant_Puertas
-        '
-        Me.Cant_Puertas.HeaderText = "Cant_Puertas"
-        Me.Cant_Puertas.Name = "Cant_Puertas"
-        '
-        'Cilindrada
-        '
-        Me.Cilindrada.HeaderText = "Cilindrada"
-        Me.Cilindrada.Name = "Cilindrada"
+        Me.SoloAutos_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SoloAutos_dgv.Location = New System.Drawing.Point(6, 140)
+        Me.SoloAutos_dgv.Name = "SoloAutos_dgv"
+        Me.SoloAutos_dgv.RowTemplate.Height = 25
+        Me.SoloAutos_dgv.Size = New System.Drawing.Size(945, 160)
+        Me.SoloAutos_dgv.TabIndex = 0
         '
         'Cliente
         '
-        Me.Cliente.Controls.Add(Me.DataGridView2)
+        Me.Cliente.Controls.Add(Me.clientes_dgv)
         Me.Cliente.Controls.Add(Me.Panel4)
         Me.Cliente.Location = New System.Drawing.Point(4, 24)
         Me.Cliente.Name = "Cliente"
@@ -393,14 +339,14 @@ Partial Class FrPrincipal
         Me.Cliente.Text = "<< Clientes >>"
         Me.Cliente.UseVisualStyleBackColor = True
         '
-        'DataGridView2
+        'clientes_dgv
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(6, 114)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowTemplate.Height = 25
-        Me.DataGridView2.Size = New System.Drawing.Size(945, 367)
-        Me.DataGridView2.TabIndex = 1
+        Me.clientes_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.clientes_dgv.Location = New System.Drawing.Point(6, 114)
+        Me.clientes_dgv.Name = "clientes_dgv"
+        Me.clientes_dgv.RowTemplate.Height = 25
+        Me.clientes_dgv.Size = New System.Drawing.Size(945, 367)
+        Me.clientes_dgv.TabIndex = 1
         '
         'Panel4
         '
@@ -475,7 +421,7 @@ Partial Class FrPrincipal
         '
         'Repuesto
         '
-        Me.Repuesto.Controls.Add(Me.DataGridView3)
+        Me.Repuesto.Controls.Add(Me.Repuestos_dgv)
         Me.Repuesto.Controls.Add(Me.Panel5)
         Me.Repuesto.Location = New System.Drawing.Point(4, 24)
         Me.Repuesto.Name = "Repuesto"
@@ -484,14 +430,14 @@ Partial Class FrPrincipal
         Me.Repuesto.Text = "<< Repuestos >>"
         Me.Repuesto.UseVisualStyleBackColor = True
         '
-        'DataGridView3
+        'Repuestos_dgv
         '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(6, 109)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.RowTemplate.Height = 25
-        Me.DataGridView3.Size = New System.Drawing.Size(945, 367)
-        Me.DataGridView3.TabIndex = 1
+        Me.Repuestos_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Repuestos_dgv.Location = New System.Drawing.Point(6, 109)
+        Me.Repuestos_dgv.Name = "Repuestos_dgv"
+        Me.Repuestos_dgv.RowTemplate.Height = 25
+        Me.Repuestos_dgv.Size = New System.Drawing.Size(945, 367)
+        Me.Repuestos_dgv.TabIndex = 1
         '
         'Panel5
         '
@@ -857,6 +803,15 @@ Partial Class FrPrincipal
         Me.Panel2.Size = New System.Drawing.Size(1135, 106)
         Me.Panel2.TabIndex = 3
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(14, 36)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Cancelar_btn
         '
         Me.Cancelar_btn.Location = New System.Drawing.Point(1038, 654)
@@ -952,14 +907,34 @@ Partial Class FrPrincipal
         Me.veh_opt.Text = "Vehiculo"
         Me.veh_opt.UseVisualStyleBackColor = True
         '
-        'Button3
+        'SoloMotos_dgv
         '
-        Me.Button3.Location = New System.Drawing.Point(14, 36)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.SoloMotos_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SoloMotos_dgv.Location = New System.Drawing.Point(6, 341)
+        Me.SoloMotos_dgv.Name = "SoloMotos_dgv"
+        Me.SoloMotos_dgv.RowTemplate.Height = 25
+        Me.SoloMotos_dgv.Size = New System.Drawing.Size(945, 150)
+        Me.SoloMotos_dgv.TabIndex = 0
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label19.Location = New System.Drawing.Point(380, 115)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(130, 20)
+        Me.Label19.TabIndex = 1
+        Me.Label19.Text = "-- Automoviles --"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label20.Location = New System.Drawing.Point(405, 313)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(86, 20)
+        Me.Label20.TabIndex = 1
+        Me.Label20.Text = "-- Motos --"
         '
         'FrPrincipal
         '
@@ -977,15 +952,16 @@ Partial Class FrPrincipal
         Me.TabGeneral.ResumeLayout(False)
         Me.Inicio.ResumeLayout(False)
         Me.Vehiculo.ResumeLayout(False)
+        Me.Vehiculo.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SoloAutos_dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Cliente.ResumeLayout(False)
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.clientes_dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Repuesto.ResumeLayout(False)
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Repuestos_dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Desperfecto.ResumeLayout(False)
@@ -999,6 +975,7 @@ Partial Class FrPrincipal
         Me.Panel2.PerformLayout()
         Me.ControlInterno_pnl.ResumeLayout(False)
         Me.ControlInterno_pnl.PerformLayout()
+        CType(Me.SoloMotos_dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1032,24 +1009,15 @@ Partial Class FrPrincipal
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ID_Vehiculo As DataGridViewTextBoxColumn
-    Friend WithEvents Patente As DataGridViewTextBoxColumn
-    Friend WithEvents Modelo As DataGridViewTextBoxColumn
+    Friend WithEvents SoloAutos_dgv As DataGridView
     Friend WithEvents ControlInterno_pnl As Panel
     Friend WithEvents des_opt As RadioButton
     Friend WithEvents rep_opt As RadioButton
     Friend WithEvents cli_opt As RadioButton
     Friend WithEvents veh_opt As RadioButton
-    Friend WithEvents Marca As DataGridViewTextBoxColumn
-    Friend WithEvents ID_Auto As DataGridViewTextBoxColumn
-    Friend WithEvents ID_Moto As DataGridViewTextBoxColumn
-    Friend WithEvents Tipo As DataGridViewTextBoxColumn
-    Friend WithEvents Cant_Puertas As DataGridViewTextBoxColumn
-    Friend WithEvents Cilindrada As DataGridViewTextBoxColumn
     Friend WithEvents Inicio As TabPage
     Friend WithEvents Label5 As Label
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents clientes_dgv As DataGridView
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Clienteadd_btn As Button
     Friend WithEvents TextBox3 As TextBox
@@ -1058,7 +1026,7 @@ Partial Class FrPrincipal
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents Repuestos_dgv As DataGridView
     Friend WithEvents Panel5 As Panel
     Friend WithEvents RepuestoAdd_btn As Button
     Friend WithEvents TextBox4 As TextBox
@@ -1093,4 +1061,7 @@ Partial Class FrPrincipal
     Friend WithEvents Ini_opt As RadioButton
     Friend WithEvents Inicio_btn As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents SoloMotos_dgv As DataGridView
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label19 As Label
 End Class
