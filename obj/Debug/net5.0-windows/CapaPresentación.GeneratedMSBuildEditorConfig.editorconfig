@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = AppTaller
-build_property.ProjectDir = C:\Users\Jesus-nb\Source\Repos\AppTaller\
+build_property.ProjectDir = C:\Users\Jesus-nb\source\repos\AppTaller\

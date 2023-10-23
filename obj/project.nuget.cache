@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nDVOMD+qUPcUxiStJ+6lB+qrz86mR+atOcGdHnH4Juq9dzWRruyhY5dxTpp0UdBeqoa/50ZZDHrEPqGCUCAPcg==",
+  "dgSpecHash": "3uAEzaLpa6KOD0gUERZf3Pour3xfdEg2XuYB3NRai67FGZoBcm8hwlZwIe/6b6Dxec1f5/BcitkQymnL+AJ3Dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jesus-nb\\Source\\Repos\\AppTaller\\CapaPresentación.vbproj",
+  "projectFilePath": "C:\\Users\\Jesus-nb\\source\\repos\\AppTaller\\CapaPresentación.vbproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jesus-nb\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Jesus-nb\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

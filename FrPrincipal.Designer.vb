@@ -41,24 +41,27 @@ Partial Class FrPrincipal
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.SoloMotos_dgv = New System.Windows.Forms.DataGridView()
         Me.SoloAutos_dgv = New System.Windows.Forms.DataGridView()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Cliente = New System.Windows.Forms.TabPage()
         Me.clientes_dgv = New System.Windows.Forms.DataGridView()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Clienteadd_btn = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.CEmail_txt = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.CApellido_txt = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.CNombre_txt = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Repuesto = New System.Windows.Forms.TabPage()
         Me.Repuestos_dgv = New System.Windows.Forms.DataGridView()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.RepuestoAdd_btn = New System.Windows.Forms.Button()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.RPrecio_txt = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Rnombre_txt = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Desperfecto = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -78,9 +81,8 @@ Partial Class FrPrincipal
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Presupuesto = New System.Windows.Forms.TabPage()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -103,13 +105,32 @@ Partial Class FrPrincipal
         Me.Ini_opt = New System.Windows.Forms.RadioButton()
         Me.cli_opt = New System.Windows.Forms.RadioButton()
         Me.veh_opt = New System.Windows.Forms.RadioButton()
-        Me.SoloMotos_dgv = New System.Windows.Forms.DataGridView()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.TabPresup = New System.Windows.Forms.TabControl()
+        Me.Crear = New System.Windows.Forms.TabPage()
+        Me.Ver = New System.Windows.Forms.TabPage()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.PMarcaMod_cbo = New System.Windows.Forms.ComboBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.PPatente_cbo = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.PRepuesto_cbo = New System.Windows.Forms.ComboBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.Inicio.SuspendLayout()
         Me.Vehiculo.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.SoloMotos_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SoloAutos_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Cliente.SuspendLayout()
         CType(Me.clientes_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,7 +145,8 @@ Partial Class FrPrincipal
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.ControlInterno_pnl.SuspendLayout()
-        CType(Me.SoloMotos_dgv, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPresup.SuspendLayout()
+        Me.Crear.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -201,7 +223,7 @@ Partial Class FrPrincipal
         Me.eliminar_btn.Name = "eliminar_btn"
         Me.eliminar_btn.Size = New System.Drawing.Size(114, 64)
         Me.eliminar_btn.TabIndex = 5
-        Me.eliminar_btn.Text = "< Eliminar >"
+        Me.eliminar_btn.Text = "< Actualizar >"
         Me.eliminar_btn.UseVisualStyleBackColor = True
         Me.eliminar_btn.Visible = False
         '
@@ -318,6 +340,15 @@ Partial Class FrPrincipal
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Patente:"
         '
+        'SoloMotos_dgv
+        '
+        Me.SoloMotos_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SoloMotos_dgv.Location = New System.Drawing.Point(6, 341)
+        Me.SoloMotos_dgv.Name = "SoloMotos_dgv"
+        Me.SoloMotos_dgv.RowTemplate.Height = 25
+        Me.SoloMotos_dgv.Size = New System.Drawing.Size(945, 150)
+        Me.SoloMotos_dgv.TabIndex = 0
+        '
         'SoloAutos_dgv
         '
         Me.SoloAutos_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -326,6 +357,26 @@ Partial Class FrPrincipal
         Me.SoloAutos_dgv.RowTemplate.Height = 25
         Me.SoloAutos_dgv.Size = New System.Drawing.Size(945, 160)
         Me.SoloAutos_dgv.TabIndex = 0
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label20.Location = New System.Drawing.Point(405, 313)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(86, 20)
+        Me.Label20.TabIndex = 1
+        Me.Label20.Text = "-- Motos --"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label19.Location = New System.Drawing.Point(380, 115)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(130, 20)
+        Me.Label19.TabIndex = 1
+        Me.Label19.Text = "-- Automoviles --"
         '
         'Cliente
         '
@@ -351,11 +402,11 @@ Partial Class FrPrincipal
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.Clienteadd_btn)
-        Me.Panel4.Controls.Add(Me.TextBox3)
+        Me.Panel4.Controls.Add(Me.CEmail_txt)
         Me.Panel4.Controls.Add(Me.Label8)
-        Me.Panel4.Controls.Add(Me.TextBox2)
+        Me.Panel4.Controls.Add(Me.CApellido_txt)
         Me.Panel4.Controls.Add(Me.Label7)
-        Me.Panel4.Controls.Add(Me.TextBox1)
+        Me.Panel4.Controls.Add(Me.CNombre_txt)
         Me.Panel4.Controls.Add(Me.Label6)
         Me.Panel4.Location = New System.Drawing.Point(6, 9)
         Me.Panel4.Name = "Panel4"
@@ -371,12 +422,12 @@ Partial Class FrPrincipal
         Me.Clienteadd_btn.Text = "< Añadir >"
         Me.Clienteadd_btn.UseVisualStyleBackColor = True
         '
-        'TextBox3
+        'CEmail_txt
         '
-        Me.TextBox3.Location = New System.Drawing.Point(100, 72)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(172, 23)
-        Me.TextBox3.TabIndex = 1
+        Me.CEmail_txt.Location = New System.Drawing.Point(100, 72)
+        Me.CEmail_txt.Name = "CEmail_txt"
+        Me.CEmail_txt.Size = New System.Drawing.Size(172, 23)
+        Me.CEmail_txt.TabIndex = 1
         '
         'Label8
         '
@@ -387,12 +438,12 @@ Partial Class FrPrincipal
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Email:"
         '
-        'TextBox2
+        'CApellido_txt
         '
-        Me.TextBox2.Location = New System.Drawing.Point(100, 43)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(172, 23)
-        Me.TextBox2.TabIndex = 1
+        Me.CApellido_txt.Location = New System.Drawing.Point(100, 43)
+        Me.CApellido_txt.Name = "CApellido_txt"
+        Me.CApellido_txt.Size = New System.Drawing.Size(172, 23)
+        Me.CApellido_txt.TabIndex = 1
         '
         'Label7
         '
@@ -403,12 +454,12 @@ Partial Class FrPrincipal
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Apellido:"
         '
-        'TextBox1
+        'CNombre_txt
         '
-        Me.TextBox1.Location = New System.Drawing.Point(100, 14)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(172, 23)
-        Me.TextBox1.TabIndex = 1
+        Me.CNombre_txt.Location = New System.Drawing.Point(100, 14)
+        Me.CNombre_txt.Name = "CNombre_txt"
+        Me.CNombre_txt.Size = New System.Drawing.Size(172, 23)
+        Me.CNombre_txt.TabIndex = 1
         '
         'Label6
         '
@@ -442,9 +493,9 @@ Partial Class FrPrincipal
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.RepuestoAdd_btn)
-        Me.Panel5.Controls.Add(Me.TextBox5)
+        Me.Panel5.Controls.Add(Me.RPrecio_txt)
         Me.Panel5.Controls.Add(Me.Label10)
-        Me.Panel5.Controls.Add(Me.TextBox4)
+        Me.Panel5.Controls.Add(Me.Rnombre_txt)
         Me.Panel5.Controls.Add(Me.Label9)
         Me.Panel5.Location = New System.Drawing.Point(12, 3)
         Me.Panel5.Name = "Panel5"
@@ -460,12 +511,12 @@ Partial Class FrPrincipal
         Me.RepuestoAdd_btn.Text = "< Añadir >"
         Me.RepuestoAdd_btn.UseVisualStyleBackColor = True
         '
-        'TextBox5
+        'RPrecio_txt
         '
-        Me.TextBox5.Location = New System.Drawing.Point(95, 48)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(189, 23)
-        Me.TextBox5.TabIndex = 1
+        Me.RPrecio_txt.Location = New System.Drawing.Point(95, 48)
+        Me.RPrecio_txt.Name = "RPrecio_txt"
+        Me.RPrecio_txt.Size = New System.Drawing.Size(189, 23)
+        Me.RPrecio_txt.TabIndex = 1
         '
         'Label10
         '
@@ -476,12 +527,12 @@ Partial Class FrPrincipal
         Me.Label10.TabIndex = 0
         Me.Label10.Text = "Precio:"
         '
-        'TextBox4
+        'Rnombre_txt
         '
-        Me.TextBox4.Location = New System.Drawing.Point(95, 17)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(189, 23)
-        Me.TextBox4.TabIndex = 1
+        Me.Rnombre_txt.Location = New System.Drawing.Point(95, 17)
+        Me.Rnombre_txt.Name = "Rnombre_txt"
+        Me.Rnombre_txt.Size = New System.Drawing.Size(189, 23)
+        Me.Rnombre_txt.TabIndex = 1
         '
         'Label9
         '
@@ -648,6 +699,7 @@ Partial Class FrPrincipal
         '
         'Presupuesto
         '
+        Me.Presupuesto.Controls.Add(Me.TabPresup)
         Me.Presupuesto.Controls.Add(Me.Panel6)
         Me.Presupuesto.Location = New System.Drawing.Point(4, 24)
         Me.Presupuesto.Name = "Presupuesto"
@@ -658,9 +710,11 @@ Partial Class FrPrincipal
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.Button5)
+        Me.Panel6.Controls.Add(Me.Button4)
+        Me.Panel6.Controls.Add(Me.ComboBox2)
+        Me.Panel6.Controls.Add(Me.DateTimePicker1)
         Me.Panel6.Controls.Add(Me.TextBox12)
-        Me.Panel6.Controls.Add(Me.TextBox11)
-        Me.Panel6.Controls.Add(Me.TextBox10)
         Me.Panel6.Controls.Add(Me.Label13)
         Me.Panel6.Controls.Add(Me.Label12)
         Me.Panel6.Controls.Add(Me.Label11)
@@ -669,6 +723,15 @@ Partial Class FrPrincipal
         Me.Panel6.Size = New System.Drawing.Size(939, 100)
         Me.Panel6.TabIndex = 0
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "dd/mm/yyyy"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(164, 39)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(130, 23)
+        Me.DateTimePicker1.TabIndex = 3
+        '
         'TextBox12
         '
         Me.TextBox12.Location = New System.Drawing.Point(164, 68)
@@ -676,28 +739,14 @@ Partial Class FrPrincipal
         Me.TextBox12.Size = New System.Drawing.Size(130, 23)
         Me.TextBox12.TabIndex = 2
         '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(164, 39)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(130, 23)
-        Me.TextBox11.TabIndex = 2
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(164, 10)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(130, 23)
-        Me.TextBox10.TabIndex = 2
-        '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(15, 71)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(127, 15)
+        Me.Label13.Size = New System.Drawing.Size(138, 15)
         Me.Label13.TabIndex = 1
-        Me.Label13.Text = "Nuero de Presupuesto:"
+        Me.Label13.Text = "Numero de Presupuesto:"
         '
         'Label12
         '
@@ -907,34 +956,206 @@ Partial Class FrPrincipal
         Me.veh_opt.Text = "Vehiculo"
         Me.veh_opt.UseVisualStyleBackColor = True
         '
-        'SoloMotos_dgv
+        'ComboBox2
         '
-        Me.SoloMotos_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SoloMotos_dgv.Location = New System.Drawing.Point(6, 341)
-        Me.SoloMotos_dgv.Name = "SoloMotos_dgv"
-        Me.SoloMotos_dgv.RowTemplate.Height = 25
-        Me.SoloMotos_dgv.Size = New System.Drawing.Size(945, 150)
-        Me.SoloMotos_dgv.TabIndex = 0
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(164, 10)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(130, 23)
+        Me.ComboBox2.TabIndex = 4
         '
-        'Label19
+        'Button4
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label19.Location = New System.Drawing.Point(380, 115)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(130, 20)
-        Me.Label19.TabIndex = 1
-        Me.Label19.Text = "-- Automoviles --"
+        Me.Button4.Location = New System.Drawing.Point(414, 25)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(139, 54)
+        Me.Button4.TabIndex = 5
+        Me.Button4.Text = "Buscar"
+        Me.Button4.UseVisualStyleBackColor = True
         '
-        'Label20
+        'Button5
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.Location = New System.Drawing.Point(405, 313)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(86, 20)
-        Me.Label20.TabIndex = 1
-        Me.Label20.Text = "-- Motos --"
+        Me.Button5.Location = New System.Drawing.Point(578, 25)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(139, 54)
+        Me.Button5.TabIndex = 5
+        Me.Button5.Text = "Crear Nuevo"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'TabPresup
+        '
+        Me.TabPresup.Controls.Add(Me.Crear)
+        Me.TabPresup.Controls.Add(Me.Ver)
+        Me.TabPresup.Location = New System.Drawing.Point(3, 109)
+        Me.TabPresup.Name = "TabPresup"
+        Me.TabPresup.SelectedIndex = 0
+        Me.TabPresup.Size = New System.Drawing.Size(944, 385)
+        Me.TabPresup.TabIndex = 1
+        '
+        'Crear
+        '
+        Me.Crear.Controls.Add(Me.TextBox3)
+        Me.Crear.Controls.Add(Me.TextBox2)
+        Me.Crear.Controls.Add(Me.TextBox1)
+        Me.Crear.Controls.Add(Me.PRepuesto_cbo)
+        Me.Crear.Controls.Add(Me.PPatente_cbo)
+        Me.Crear.Controls.Add(Me.PMarcaMod_cbo)
+        Me.Crear.Controls.Add(Me.RadioButton2)
+        Me.Crear.Controls.Add(Me.Label25)
+        Me.Crear.Controls.Add(Me.RadioButton1)
+        Me.Crear.Controls.Add(Me.Label23)
+        Me.Crear.Controls.Add(Me.Label22)
+        Me.Crear.Controls.Add(Me.Label27)
+        Me.Crear.Controls.Add(Me.Label26)
+        Me.Crear.Controls.Add(Me.Label24)
+        Me.Crear.Controls.Add(Me.Label21)
+        Me.Crear.Location = New System.Drawing.Point(4, 24)
+        Me.Crear.Name = "Crear"
+        Me.Crear.Padding = New System.Windows.Forms.Padding(3)
+        Me.Crear.Size = New System.Drawing.Size(936, 357)
+        Me.Crear.TabIndex = 0
+        Me.Crear.Text = "<< Crear Presupuesto >>"
+        Me.Crear.UseVisualStyleBackColor = True
+        '
+        'Ver
+        '
+        Me.Ver.Location = New System.Drawing.Point(4, 24)
+        Me.Ver.Name = "Ver"
+        Me.Ver.Padding = New System.Windows.Forms.Padding(3)
+        Me.Ver.Size = New System.Drawing.Size(936, 357)
+        Me.Ver.TabIndex = 1
+        Me.Ver.Text = "<< Presupuesto >>"
+        Me.Ver.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(11, 14)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(114, 15)
+        Me.Label21.TabIndex = 0
+        Me.Label21.Text = "Seleccione Vehiculo:"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(151, 12)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(81, 19)
+        Me.RadioButton1.TabIndex = 1
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Automovil"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(254, 12)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(54, 19)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.Text = "Moto"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'PMarcaMod_cbo
+        '
+        Me.PMarcaMod_cbo.FormattingEnabled = True
+        Me.PMarcaMod_cbo.Location = New System.Drawing.Point(164, 57)
+        Me.PMarcaMod_cbo.Name = "PMarcaMod_cbo"
+        Me.PMarcaMod_cbo.Size = New System.Drawing.Size(210, 23)
+        Me.PMarcaMod_cbo.TabIndex = 2
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(11, 60)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(148, 15)
+        Me.Label22.TabIndex = 0
+        Me.Label22.Text = "Seleccione Marca/Modelo:"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(401, 60)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(89, 15)
+        Me.Label23.TabIndex = 0
+        Me.Label23.Text = "Nro de Patente:"
+        '
+        'PPatente_cbo
+        '
+        Me.PPatente_cbo.FormattingEnabled = True
+        Me.PPatente_cbo.Location = New System.Drawing.Point(496, 57)
+        Me.PPatente_cbo.Name = "PPatente_cbo"
+        Me.PPatente_cbo.Size = New System.Drawing.Size(135, 23)
+        Me.PPatente_cbo.TabIndex = 2
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(173, 117)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(201, 23)
+        Me.TextBox1.TabIndex = 3
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(11, 120)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(157, 15)
+        Me.Label24.TabIndex = 0
+        Me.Label24.Text = "Descripcion del Desperfecto:"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(18, 174)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(106, 15)
+        Me.Label25.TabIndex = 0
+        Me.Label25.Text = "Repuesto a utilizar:"
+        '
+        'PRepuesto_cbo
+        '
+        Me.PRepuesto_cbo.FormattingEnabled = True
+        Me.PRepuesto_cbo.Location = New System.Drawing.Point(130, 171)
+        Me.PRepuesto_cbo.Name = "PRepuesto_cbo"
+        Me.PRepuesto_cbo.Size = New System.Drawing.Size(135, 23)
+        Me.PRepuesto_cbo.TabIndex = 2
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(484, 117)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(133, 23)
+        Me.TextBox2.TabIndex = 3
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(786, 117)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(133, 23)
+        Me.TextBox3.TabIndex = 3
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(392, 120)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(86, 15)
+        Me.Label26.TabIndex = 0
+        Me.Label26.Text = "Mano de Obra:"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(640, 120)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(102, 15)
+        Me.Label27.TabIndex = 0
+        Me.Label27.Text = "Tiempo Estimado:"
         '
         'FrPrincipal
         '
@@ -955,6 +1176,7 @@ Partial Class FrPrincipal
         Me.Vehiculo.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.SoloMotos_dgv, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SoloAutos_dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Cliente.ResumeLayout(False)
         CType(Me.clientes_dgv, System.ComponentModel.ISupportInitialize).EndInit()
@@ -975,7 +1197,9 @@ Partial Class FrPrincipal
         Me.Panel2.PerformLayout()
         Me.ControlInterno_pnl.ResumeLayout(False)
         Me.ControlInterno_pnl.PerformLayout()
-        CType(Me.SoloMotos_dgv, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPresup.ResumeLayout(False)
+        Me.Crear.ResumeLayout(False)
+        Me.Crear.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1020,18 +1244,18 @@ Partial Class FrPrincipal
     Friend WithEvents clientes_dgv As DataGridView
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Clienteadd_btn As Button
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents CEmail_txt As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents CApellido_txt As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents CNombre_txt As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Repuestos_dgv As DataGridView
     Friend WithEvents Panel5 As Panel
     Friend WithEvents RepuestoAdd_btn As Button
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Rnombre_txt As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents RPrecio_txt As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Desperfecto As TabPage
     Friend WithEvents Panel7 As Panel
@@ -1051,8 +1275,6 @@ Partial Class FrPrincipal
     Friend WithEvents Label18 As Label
     Friend WithEvents Panel6 As Panel
     Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox10 As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
@@ -1064,4 +1286,26 @@ Partial Class FrPrincipal
     Friend WithEvents SoloMotos_dgv As DataGridView
     Friend WithEvents Label20 As Label
     Friend WithEvents Label19 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents TabPresup As TabControl
+    Friend WithEvents Crear As TabPage
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents PRepuesto_cbo As ComboBox
+    Friend WithEvents PPatente_cbo As ComboBox
+    Friend WithEvents PMarcaMod_cbo As ComboBox
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents Label25 As Label
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Ver As TabPage
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents ComboBox2 As ComboBox
 End Class

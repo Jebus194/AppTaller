@@ -11,11 +11,11 @@ Public Class FrPrincipal
 
 
     Public Enum Tipo_auto
-        Compacto
-        Sedán
-        Monovolumen
-        Utlitario
-        Lujo
+        Compacto = 0
+        Sedán = 1
+        Monovolumen = 2
+        Utlitario = 3
+        Lujo = 4
     End Enum
     Enum TabsNumber
         Inicio = 1
@@ -31,14 +31,18 @@ Public Class FrPrincipal
         Me.Close()
     End Sub
 
+#Region "Botones Añadir"
     Private Sub Agregar_btn_Click(sender As Object, e As EventArgs) Handles Agregar_btn.Click
-        ValidarAlta()
+        ValidarAlta("vehiculo")
         Dim EsAuto As Boolean
+        Dim Auto As New Automovil
+        Dim moto As New Moto
         If Auto_opt.Checked Then EsAuto = True
+        Dim tipo As Integer
 
         If EsAuto Then
             If CShort(PuertaCilindr_txt.Text) > 5 Then Err.Raise(20200,, "El auto no puede tener mas de 5 puertas")
-            Dim Auto As New Automovil
+            tipo = Tipo_cbo.SelectedIndex
             With Auto
                 .Vehiculo_Marca = Marca_txt.Text
                 .Vehiculo_Modelo = Modelo_txt.Text
@@ -46,11 +50,10 @@ Public Class FrPrincipal
                 .Id_vehiculo = -1
                 .Id_Auto = -1
                 .Auto_Cant_Puertas = CShort(PuertaCilindr_txt.Text)
-                .Auto_Tipo = Tipo_cbo.SelectedIndex
+                .Auto_Tipo = 0
             End With
         Else 'es moto
-            Dim moto As New Moto
-            With moto
+            With Moto
                 .Id_vehiculo = -1
                 .Id_Moto = -1
                 .Vehiculo_Marca = Marca_txt.Text
@@ -60,46 +63,50 @@ Public Class FrPrincipal
             End With
         End If
 
-
+        MsgBox(GuardarAuto(Auto))
+        LimpioCampos("vehiculo")
+        Loaddata()
     End Sub
 
-    Private Sub ValidarAlta()
-        Dim Errores As String = "Por favor ingrese: "
-        Dim Moto, hayErrores As Boolean
-        Try
-            Moto = Moto_opt.Checked
-            If Patente_txt.Text = "" Then
-                Errores = Errores + " el número de patente"
-                Patente_txt.Focus()
-                hayErrores = True
-            End If
-            If Modelo_txt.Text = "" Then
-                Errores = Errores + $"{vbCrLf} el modelo"
-                Modelo_txt.Focus()
-                hayErrores = True
-            End If
-            If Marca_txt.Text = "" Then
-                Errores = Errores + " la marca"
-                Marca_txt.Focus()
-                hayErrores = True
-            End If
-            If PuertaCilindr_txt.Text = "" Then
-                Errores = Errores + $" {IIf(Moto = True, "la cilindrada", "la cantidad de puertas")}"
-                PuertaCilindr_txt.Focus()
-                hayErrores = True
-            End If
-            If Tipo_cbo.Text = "" And Moto = False Then
-                Errores = Errores + " tipo"
-                Tipo_cbo.Focus()
-                hayErrores = True
-            End If
+    Private Sub Clienteadd_btn_Click(sender As Object, e As EventArgs) Handles Clienteadd_btn.Click
+        ValidarAlta("cliente")
+        Dim nombre, apellido, email As String
+        Dim persona As New Cliente
+        nombre = CNombre_txt.Text
+        apellido = CApellido_txt.Text
+        email = CEmail_txt.Text
 
-            If hayErrores Then Err.Raise(20200,, $"{Errores}")
-        Catch
+        With persona
+            .Cliente_Nombre = nombre
+            .Cliente_Apellido = apellido
+            .Cliente_Email = email
+        End With
 
-        End Try
+        MsgBox(GuardarCliente(persona))
+        LimpioCampos("cliente")
+        Loaddata()
+    End Sub
+    Private Sub RepuestoAdd_btn_Click(sender As Object, e As EventArgs) Handles RepuestoAdd_btn.Click
+        ValidarAlta("repuesto")
+        Dim nombre As String
+        Dim precio As Decimal
+        Dim rep As New Repuesto
+
+        nombre = Rnombre_txt.Text
+        precio = RPrecio_txt.Text
+
+        With rep
+            .repuesto_nombre = nombre
+            .repuesto_precio = precio
+        End With
+
+        MsgBox(GuardarRepuesto(rep))
+        LimpioCampos("repuesto")
+        Loaddata()
     End Sub
 
+
+#End Region
     Private Sub Auto_opt_CheckedChanged(sender As Object, e As EventArgs) Handles Auto_opt.CheckedChanged
         If Auto_opt.Checked Then
             Visibilizar(True)
@@ -108,11 +115,7 @@ Public Class FrPrincipal
         End If
 
     End Sub
-    Private Sub Visibilizar(ByVal OnOff As Boolean)
-        tipo_lbl.Visible = OnOff
-        Tipo_cbo.Visible = OnOff
-        If OnOff = True Then PuertaCilindr_lbl.Text = "Cant de Puertas:" Else PuertaCilindr_lbl.Text = "Cilindrada:"
-    End Sub
+
 #Region "Carga del Form"
     Private Sub FrPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'mainform_Load
@@ -123,11 +126,9 @@ Public Class FrPrincipal
         TabGeneral.TabPages.Add(Inicio)
         'Cargar DT y DGV
         Loaddata()
-        'ExpandoColumnas()
-    End Sub
-    'Private Sub ExpandoColumnas()
 
-    'End Sub
+    End Sub
+
 
 #End Region
 #Region "Movimiento de pestañas"
@@ -165,6 +166,69 @@ Public Class FrPrincipal
     Private Sub Presupuesto_btn_Click(sender As Object, e As EventArgs) Handles Presupuestos_btn.Click
         pre_opt.Checked = True
         Swipe()
+    End Sub
+
+
+
+    Private Function GetIDTab()
+        Dim i As Short
+        i = TabGeneral.SelectedIndex()
+        GetIDTab = i
+    End Function
+
+#End Region
+#Region "SqlArea"
+
+    'Private Function UltimoId(ByVal Tabla As String)
+    '    Dim Execute As New SqlArea
+    '    Dim id As Integer
+    '    id = Execute.UltimoID(Tabla)
+    '    Return id
+    'End Function
+
+
+    Private Function GuardarAuto(ByRef Auto As Automovil)
+        Dim Save As New Savedb(Auto)
+        If Save.Commited Then
+            Return "Añadido Exitosamente"
+        Else
+            Return "Ha ocurrido un error"
+        End If
+    End Function
+
+    Private Function GuardarMoto(ByRef Moto As Moto)
+        Dim Save As New Savedb(Moto)
+        If Save.Commited Then
+            Return "Añadido Exitosamente"
+        Else
+            Return "Ha ocurrido un error"
+        End If
+    End Function
+    Private Function GuardarCliente(ByRef cliente As Cliente)
+        Dim Save As New Savedb(cliente)
+        If Save.Commited Then
+            Return "Añadido Exitosamente"
+        Else
+            Return "Ha ocurrido un error"
+        End If
+    End Function
+
+
+    Private Function GuardarRepuesto(ByRef repuesto As Repuesto)
+        Dim Save As New Savedb(repuesto)
+        If Save.Commited Then
+            Return "Añadido Exitosamente"
+        Else
+            Return "Ha ocurrido un error"
+        End If
+    End Function
+#End Region
+
+#Region "Acciones"
+    Private Sub Visibilizar(ByVal OnOff As Boolean)
+        tipo_lbl.Visible = OnOff
+        Tipo_cbo.Visible = OnOff
+        If OnOff = True Then PuertaCilindr_lbl.Text = "Cant de Puertas:" Else PuertaCilindr_lbl.Text = "Cilindrada:"
     End Sub
 
     Private Sub Swipe()
@@ -205,14 +269,95 @@ Public Class FrPrincipal
         End Select
     End Sub
 
-    Private Function GetIDTab()
-        Dim i As Short
-        i = TabGeneral.SelectedIndex()
-        GetIDTab = i
-    End Function
+
 
 #End Region
-#Region "SqlArea"
+
+#Region "Funcionalidad"
+    Private Sub ValidarAlta(ByVal Instancia As String)
+        Dim Errores As String = "Por favor ingrese: "
+        Dim Moto, hayErrores As Boolean
+        Try
+            Select Case Instancia
+                Case "vehiculo"
+                    Moto = Moto_opt.Checked
+                    If Patente_txt.Text = "" Then
+                        Errores = Errores + " el número de patente"
+                        Patente_txt.Focus()
+                        hayErrores = True
+                    End If
+                    If Modelo_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} el modelo"
+                        Modelo_txt.Focus()
+                        hayErrores = True
+                    End If
+                    If Marca_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} la marca"
+                        Marca_txt.Focus()
+                        hayErrores = True
+                    End If
+                    If PuertaCilindr_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} {IIf(Moto = True, "la cilindrada", "la cantidad de puertas")}"
+                        PuertaCilindr_txt.Focus()
+                        hayErrores = True
+                    End If
+                    If Tipo_cbo.Text = "" And Moto = False Then
+                        Errores = Errores + $"{vbCrLf} tipo"
+                        Tipo_cbo.Focus()
+                        hayErrores = True
+                    End If
+                Case "cliente"
+                    If CNombre_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} el nombre"
+                        hayErrores = True
+                    End If
+                    If CApellido_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} el apellido"
+                        hayErrores = True
+                    End If
+                    If CEmail_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} el correo"
+                        hayErrores = True
+                    End If
+                Case "repuesto"
+                    If Rnombre_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} el nombre"
+                        hayErrores = True
+                    End If
+                    If RPrecio_txt.Text = "" Then
+                        Errores = Errores + $"{vbCrLf} el precio"
+                        hayErrores = True
+                    End If
+
+                Case "presupuesto"
+
+            End Select
+            If hayErrores Then Err.Raise(20200,, $"{Errores}")
+        Catch
+
+        End Try
+    End Sub
+
+    Private Sub LimpioCampos(ByVal vista As String)
+        Select Case vista
+            Case "vehiculo"
+                Marca_txt.Text = ""
+                Modelo_txt.Text = ""
+                Patente_txt.Text = ""
+                PuertaCilindr_txt.Text = ""
+                Tipo_cbo.Text = ""
+                Auto_opt.Checked = True
+            Case "cliente"
+                CNombre_txt.Text = ""
+                CApellido_txt.Text = ""
+                CEmail_txt.Text = ""
+            Case "repuesto"
+                Rnombre_txt.Text = ""
+                RPrecio_txt.Text = ""
+            Case "arreglo"
+            Case "presupuesto"
+        End Select
+    End Sub
 
     Private Sub Loaddata()
         Dim QueryAutos As String = "Select * from SoloAutos"
@@ -246,7 +391,16 @@ Public Class FrPrincipal
         Next
     End Sub
 
+
 #End Region
 
+#Region "testing"
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Loaddata()
+    End Sub
+
+
+
+#End Region
 
 End Class
