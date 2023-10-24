@@ -63,7 +63,7 @@ Public Class FrPrincipal
                 .Auto_Tipo = 0
             End With
         Else 'es moto
-            With Moto
+            With moto
                 .Id_vehiculo = -1
                 .Id_Moto = -1
                 .Vehiculo_Marca = Marca_txt.Text
