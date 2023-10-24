@@ -1,4 +1,5 @@
 ﻿Imports CapaLogica
+Imports CapaLogica.Fn
 'Imports CapaPersistencia
 Public Class FrPrincipal
 
@@ -8,8 +9,17 @@ Public Class FrPrincipal
     Dim RstSoloMotos As DataTable
     Dim RstRepuesto As DataTable
     Dim RstCliente As DataTable
+    Dim RstPresupuestosGral As DataTable
 
-
+    Dim HayPresupuestosenDB As Boolean = False
+    Dim DatosAutosaCombo As New List(Of String)
+    Dim DatosPatAutoaCombo As New List(Of String)
+    Dim DatosMotosaCombo As New List(Of String)
+    Dim DatosPatMotosaCombo As New List(Of String)
+    Dim DatosClientesaCombo As New List(Of String)
+    Dim DatosVehiculosaCombo As New List(Of String)
+    Dim DatosPatenteaCombo As New List(Of String)
+    Dim DatosRepuestosaCombo As New List(Of String)
     Public Enum Tipo_auto
         Compacto = 0
         Sedán = 1
@@ -166,8 +176,54 @@ Public Class FrPrincipal
     Private Sub Presupuesto_btn_Click(sender As Object, e As EventArgs) Handles Presupuestos_btn.Click
         pre_opt.Checked = True
         Swipe()
+        LoadClientes()
+    End Sub
+    Private Sub LoadClientes()
+        Dim ClientesTotal As New Cliente
+        Dim Clientes_DT As DataTable
+        Clientes_DT = ClientesTotal.SearchClientes()
+
+        For Each row As DataRow In Clientes_DT.Rows
+            Dim valorConcatenado As String = row("Cliente_Apellido").ToString() & " - " & row("Cliente_Nombre").ToString()
+            DatosClientesaCombo.Add(valorConcatenado)
+        Next
+        'cargo en combo
+        PGCliente_cbo.Items.AddRange(DatosClientesaCombo.ToArray())
+        LoadPrespuestoGral()
+
+        'cargo array auto
+        For Each row As DataRow In RstSoloAutos.Rows
+            Dim ParaArmarCbo As String = row("Marca").ToString() + " - " + row("modelo").ToString()
+            Dim Patente As String = row("patente").ToString
+            DatosAutosaCombo.Add(ParaArmarCbo)
+            DatosPatAutoaCombo.Add(Patente)
+        Next
+
+        For Each row As DataRow In RstSoloMotos.Rows
+            Dim ParaArmarCbo As String = row("Marca").ToString() + " - " + row("modelo").ToString()
+            Dim Patente As String = row("patente").ToString
+            DatosMotosaCombo.Add(ParaArmarCbo)
+            DatosPatMotosaCombo.Add(Patente)
+        Next
+        For Each row As DataRow In RstRepuesto.Rows
+            Dim ParaArmarCbo As String = row("repuesto_nombre").ToString() + " -> " + row("repuesto_precio").ToString()
+            DatosRepuestosaCombo.Add(ParaArmarCbo)
+        Next
+
+
+
     End Sub
 
+    Private Sub LoadPrespuestoGral()
+        'dejo cargado en memoria la tabla prespuestos
+        Dim BuscoPresupuestos As New Presupuesto
+        Dim Haypresupuestos As Object
+        HayPresupuestosenDB = False
+        Haypresupuestos = BuscoPresupuestos.SearchPresupuestos()
+        If Haypresupuestos = Nothing Then Exit Sub
+        HayPresupuestosenDB = True
+        RstPresupuestosGral = BuscoPresupuestos.SearchPresupuestos()
+    End Sub
 
 
     Private Function GetIDTab()
@@ -225,6 +281,16 @@ Public Class FrPrincipal
 #End Region
 
 #Region "Acciones"
+
+    Private Sub PGCliente_cbo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PGCliente_cbo.SelectedIndexChanged
+        PGNro_txt.Text = "-"
+        If Not HayPresupuestosenDB Then Exit Sub
+        Dim rela_cliente As Integer
+        rela_cliente = PGCliente_cbo.SelectedIndex
+        RstPresupuestosGral.Rows.Find($"rela_clientes = {rela_cliente} ")
+        'continuar logica
+        PGNro_txt.Text = "aca va un numero"
+    End Sub
     Private Sub Visibilizar(ByVal OnOff As Boolean)
         tipo_lbl.Visible = OnOff
         Tipo_cbo.Visible = OnOff
@@ -396,8 +462,167 @@ Public Class FrPrincipal
 
 #Region "testing"
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Loaddata()
+        'Loaddata()
+        CreoPresupuesto()
     End Sub
+#End Region
+
+#Region "Cargo Prepuestos"
+
+
+#End Region
+
+
+
+#Region "creando nuevo Presupuesto"
+
+
+
+    Dim Total As Decimal = 0
+    Dim Presu_Carga As New Presupuesto
+
+
+    Private Sub RadioButtons_CheckedChanged(sender As Object, e As EventArgs) Handles PMoto_opt.CheckedChanged
+        If PMoto_opt.Checked Then
+            PMarcaM_cbo.BringToFront()
+            PPatenteM_cbo.BringToFront()
+        Else
+            PMarcaA_cbo.BringToFront()
+            PPatenteA_cbo.BringToFront()
+        End If
+    End Sub
+
+
+    Private Sub PCrear_Click(sender As Object, e As EventArgs) Handles PCrear_btn.Click
+        PFinalizar_btn.Enabled = False
+        PTotal_lbl.Text = FormatCurrency(Total)
+        TabPresup.Visible = True
+        Dim tabsOcultar As New List(Of TabPage) From {Crear, Busqueda}
+        For Each tabs In tabsOcultar
+            TabPresup.TabPages.Remove(tabs)
+        Next
+        TabPresup.TabPages.Add(Crear)
+        Lockear(False)
+        PCliente_cbo.Items.AddRange(DatosClientesaCombo.ToArray())
+        PreparoCombos()
+
+    End Sub
+
+    Private Sub PreparoCombos()
+
+        PMarcaA_cbo.Items.AddRange(DatosAutosaCombo.ToArray())
+        PMarcaM_cbo.Items.AddRange(DatosMotosaCombo.ToArray())
+        PPatenteA_cbo.Items.AddRange(DatosPatAutoaCombo.ToArray())
+        PPatenteM_cbo.Items.AddRange(DatosPatMotosaCombo.ToArray())
+        PRepuesto_cbo.Items.AddRange(DatosRepuestosaCombo.ToArray())
+
+
+
+    End Sub
+
+
+    Private Sub Lockear(ByVal OnOff As Boolean)
+        PGCliente_cbo.Enabled = OnOff
+        PGFecha_dtp.Enabled = OnOff
+
+    End Sub
+
+    Private Sub Ppaso1_btn_Click(sender As Object, e As EventArgs) Handles Ppaso1_btn.Click
+        Try
+            Control1()
+            PCliente_gbx.Enabled = False
+            PVehiculo_gbx.Visible = True
+            PRepuesto_cbo.Items.AddRange(DatosVehiculosaCombo.ToArray())
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+    End Sub
+
+
+    Private Sub Ppaso2_btn_Click(sender As Object, e As EventArgs) Handles Ppaso2_btn.Click
+        Try
+            Control2()
+            PVehiculo_gbx.Enabled = False
+            PDesperfecto_gbx.Visible = True
+            CreoPresupuesto()
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+    End Sub
+
+    Private Sub Control1()
+        If PCliente_cbo.Text = "" Then Err.Raise(20200,, "Por favor seleccione un cliente")
+    End Sub
+    Private Sub Control2()
+        If PAuto_opt.Checked Then
+            If PMarcaA_cbo.Text = "" Then Err.Raise(20200,, "Por favor seleccione una marca")
+        Else
+            If PMarcaM_cbo.Text = "" Then Err.Raise(20200,, "Por favor seleccione una marca")
+        End If
+    End Sub
+
+    Private Sub CreoPresupuesto()
+        Dim buscoIDcliente As New SqlArea
+        Dim buscoIDVehiculo As New SqlArea
+        Dim relacliente As DataTable
+        Dim relavehiculo As DataTable
+        Dim marcaModelo As String
+        If PAuto_opt.Checked Then
+            marcaModelo = PMarcaA_cbo.Text
+        Else
+            marcaModelo = PMarcaM_cbo.Text
+        End If
+        Dim MarcaSeparada() As String = marcaModelo.Split(New Char() {"-"c})
+        Dim idVehiculo, idCliente As Integer
+        Dim NombreCompleto As String = PCliente_cbo.Text
+        Dim NombreSeparado() As String = NombreCompleto.Split(New Char() {"-"c})
+        Dim dtr As DataRow
+
+        relacliente = buscoIDcliente.EjecutoQuery($"Select id_clientes from clientes where cliente_apellido = '{NombreSeparado(0).Trim}' and cliente_nombre = '{NombreSeparado(1).Trim}'")
+
+        relavehiculo = buscoIDVehiculo.EjecutoQuery($"select id_vehiculo from vehiculo where vehiculo_marca = '{MarcaSeparada(0).Trim}' and vehiculo_modelo = '{MarcaSeparada(1).Trim}'")
+
+        dtr = relacliente.Rows(0)
+        idCliente = Convert.ToInt32(dtr("id_clientes"))
+
+        dtr = relavehiculo.Rows(0)
+        idVehiculo = Convert.ToInt32(dtr("id_vehiculo"))
+        Dim fecha As String = Now.ToString("dd-MM-yyyy")
+        With Presu_Carga
+            .presupuesto_fecha = fecha
+            .presupuesto_total = 0
+            .rela_clientes = idCliente
+            .rela_vehiculos = idVehiculo
+        End With
+
+        Dim toSql As New Savedb
+
+        toSql.Presupuesto(Presu_Carga)
+        If toSql.Commited Then MsgBox("Ok")
+
+
+    End Sub
+
+    Private Sub Ppaso3_btn_Click(sender As Object, e As EventArgs) Handles Ppaso3_btn.Click
+
+    End Sub
+
+    Private Sub Ppaso4_btn_Click(sender As Object, e As EventArgs) Handles Ppaso4_btn.Click
+
+    End Sub
+
+    Private Sub PFinalizar_btn_Click(sender As Object, e As EventArgs) Handles PFinalizar_btn.Click
+
+    End Sub
+
+    Private Sub Desperfecto_btn_Click(sender As Object, e As EventArgs) Handles Desperfecto_btn.Click
+        MsgBox("Funcionalidad en preparación")
+    End Sub
+
+    Private Sub PBuscar_btn_Click(sender As Object, e As EventArgs) Handles PBuscar_btn.Click
+        MsgBox("Funcionalidad en preparación")
+    End Sub
+
 
 
 

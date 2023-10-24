@@ -80,9 +80,47 @@ Partial Class FrPrincipal
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Presupuesto = New System.Windows.Forms.TabPage()
+        Me.TabPresup = New System.Windows.Forms.TabControl()
+        Me.Crear = New System.Windows.Forms.TabPage()
+        Me.PTotal_lbl = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.PFinalizar_btn = New System.Windows.Forms.Button()
+        Me.PDesperfecto_gbx = New System.Windows.Forms.GroupBox()
+        Me.Ppaso3_btn = New System.Windows.Forms.Button()
+        Me.PDesper_Obra_txt = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.PDesper_tiempo_txt = New System.Windows.Forms.TextBox()
+        Me.PDesper_descri_txt = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.PVehiculo_gbx = New System.Windows.Forms.GroupBox()
+        Me.Ppaso2_btn = New System.Windows.Forms.Button()
+        Me.PMoto_opt = New System.Windows.Forms.RadioButton()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.PAuto_opt = New System.Windows.Forms.RadioButton()
+        Me.PPatenteA_cbo = New System.Windows.Forms.ComboBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.PMarcaA_cbo = New System.Windows.Forms.ComboBox()
+        Me.PMarcaM_cbo = New System.Windows.Forms.ComboBox()
+        Me.PPatenteM_cbo = New System.Windows.Forms.ComboBox()
+        Me.PRepuesto_gbx = New System.Windows.Forms.GroupBox()
+        Me.Ppaso5_btn = New System.Windows.Forms.Button()
+        Me.Ppaso4_btn = New System.Windows.Forms.Button()
+        Me.PRepuesto_cbo = New System.Windows.Forms.ComboBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.PCliente_gbx = New System.Windows.Forms.GroupBox()
+        Me.Ppaso1_btn = New System.Windows.Forms.Button()
+        Me.PCliente_cbo = New System.Windows.Forms.ComboBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Busqueda = New System.Windows.Forms.TabPage()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.PCrear_btn = New System.Windows.Forms.Button()
+        Me.PBuscar_btn = New System.Windows.Forms.Button()
+        Me.PGCliente_cbo = New System.Windows.Forms.ComboBox()
+        Me.PGFecha_dtp = New System.Windows.Forms.DateTimePicker()
+        Me.PGNro_txt = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -105,27 +143,6 @@ Partial Class FrPrincipal
         Me.Ini_opt = New System.Windows.Forms.RadioButton()
         Me.cli_opt = New System.Windows.Forms.RadioButton()
         Me.veh_opt = New System.Windows.Forms.RadioButton()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.TabPresup = New System.Windows.Forms.TabControl()
-        Me.Crear = New System.Windows.Forms.TabPage()
-        Me.Ver = New System.Windows.Forms.TabPage()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.PMarcaMod_cbo = New System.Windows.Forms.ComboBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.PPatente_cbo = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.PRepuesto_cbo = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.Inicio.SuspendLayout()
         Me.Vehiculo.SuspendLayout()
@@ -141,12 +158,16 @@ Partial Class FrPrincipal
         Me.Desperfecto.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Presupuesto.SuspendLayout()
+        Me.TabPresup.SuspendLayout()
+        Me.Crear.SuspendLayout()
+        Me.PDesperfecto_gbx.SuspendLayout()
+        Me.PVehiculo_gbx.SuspendLayout()
+        Me.PRepuesto_gbx.SuspendLayout()
+        Me.PCliente_gbx.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.ControlInterno_pnl.SuspendLayout()
-        Me.TabPresup.SuspendLayout()
-        Me.Crear.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -708,13 +729,360 @@ Partial Class FrPrincipal
         Me.Presupuesto.Text = "<<  Presupuestos >>"
         Me.Presupuesto.UseVisualStyleBackColor = True
         '
+        'TabPresup
+        '
+        Me.TabPresup.Controls.Add(Me.Crear)
+        Me.TabPresup.Controls.Add(Me.Busqueda)
+        Me.TabPresup.Location = New System.Drawing.Point(3, 109)
+        Me.TabPresup.Name = "TabPresup"
+        Me.TabPresup.SelectedIndex = 0
+        Me.TabPresup.Size = New System.Drawing.Size(944, 385)
+        Me.TabPresup.TabIndex = 1
+        Me.TabPresup.Visible = False
+        '
+        'Crear
+        '
+        Me.Crear.Controls.Add(Me.PTotal_lbl)
+        Me.Crear.Controls.Add(Me.Label30)
+        Me.Crear.Controls.Add(Me.PFinalizar_btn)
+        Me.Crear.Controls.Add(Me.PDesperfecto_gbx)
+        Me.Crear.Controls.Add(Me.PVehiculo_gbx)
+        Me.Crear.Controls.Add(Me.PRepuesto_gbx)
+        Me.Crear.Controls.Add(Me.PCliente_gbx)
+        Me.Crear.Controls.Add(Me.Label28)
+        Me.Crear.Location = New System.Drawing.Point(4, 24)
+        Me.Crear.Name = "Crear"
+        Me.Crear.Padding = New System.Windows.Forms.Padding(3)
+        Me.Crear.Size = New System.Drawing.Size(936, 357)
+        Me.Crear.TabIndex = 0
+        Me.Crear.Text = "<< Crear Presupuesto >>"
+        Me.Crear.UseVisualStyleBackColor = True
+        '
+        'PTotal_lbl
+        '
+        Me.PTotal_lbl.AutoSize = True
+        Me.PTotal_lbl.ForeColor = System.Drawing.Color.Blue
+        Me.PTotal_lbl.Location = New System.Drawing.Point(614, 324)
+        Me.PTotal_lbl.Name = "PTotal_lbl"
+        Me.PTotal_lbl.Size = New System.Drawing.Size(70, 15)
+        Me.PTotal_lbl.TabIndex = 7
+        Me.PTotal_lbl.Text = "$ 123.456,78"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(445, 324)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(163, 15)
+        Me.Label30.TabIndex = 7
+        Me.Label30.Text = "El total del presupuesto es de:"
+        '
+        'PFinalizar_btn
+        '
+        Me.PFinalizar_btn.Location = New System.Drawing.Point(755, 320)
+        Me.PFinalizar_btn.Name = "PFinalizar_btn"
+        Me.PFinalizar_btn.Size = New System.Drawing.Size(170, 23)
+        Me.PFinalizar_btn.TabIndex = 6
+        Me.PFinalizar_btn.Text = "<< Finalizar Carga >>"
+        Me.PFinalizar_btn.UseVisualStyleBackColor = True
+        '
+        'PDesperfecto_gbx
+        '
+        Me.PDesperfecto_gbx.Controls.Add(Me.Ppaso3_btn)
+        Me.PDesperfecto_gbx.Controls.Add(Me.PDesper_Obra_txt)
+        Me.PDesperfecto_gbx.Controls.Add(Me.Label24)
+        Me.PDesperfecto_gbx.Controls.Add(Me.Label26)
+        Me.PDesperfecto_gbx.Controls.Add(Me.PDesper_tiempo_txt)
+        Me.PDesperfecto_gbx.Controls.Add(Me.PDesper_descri_txt)
+        Me.PDesperfecto_gbx.Controls.Add(Me.Label27)
+        Me.PDesperfecto_gbx.Location = New System.Drawing.Point(11, 171)
+        Me.PDesperfecto_gbx.Name = "PDesperfecto_gbx"
+        Me.PDesperfecto_gbx.Size = New System.Drawing.Size(914, 75)
+        Me.PDesperfecto_gbx.TabIndex = 5
+        Me.PDesperfecto_gbx.TabStop = False
+        Me.PDesperfecto_gbx.Text = "Datos del Desperfecto a arreglar:"
+        Me.PDesperfecto_gbx.Visible = False
+        '
+        'Ppaso3_btn
+        '
+        Me.Ppaso3_btn.Location = New System.Drawing.Point(640, 46)
+        Me.Ppaso3_btn.Name = "Ppaso3_btn"
+        Me.Ppaso3_btn.Size = New System.Drawing.Size(93, 23)
+        Me.Ppaso3_btn.TabIndex = 3
+        Me.Ppaso3_btn.Text = "Siguiente ->"
+        Me.Ppaso3_btn.UseVisualStyleBackColor = True
+        '
+        'PDesper_Obra_txt
+        '
+        Me.PDesper_Obra_txt.Location = New System.Drawing.Point(483, 22)
+        Me.PDesper_Obra_txt.Name = "PDesper_Obra_txt"
+        Me.PDesper_Obra_txt.Size = New System.Drawing.Size(133, 23)
+        Me.PDesper_Obra_txt.TabIndex = 3
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(10, 25)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(157, 15)
+        Me.Label24.TabIndex = 0
+        Me.Label24.Text = "Descripcion del Desperfecto:"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(391, 25)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(86, 15)
+        Me.Label26.TabIndex = 0
+        Me.Label26.Text = "Mano de Obra:"
+        '
+        'PDesper_tiempo_txt
+        '
+        Me.PDesper_tiempo_txt.Location = New System.Drawing.Point(170, 51)
+        Me.PDesper_tiempo_txt.Name = "PDesper_tiempo_txt"
+        Me.PDesper_tiempo_txt.Size = New System.Drawing.Size(133, 23)
+        Me.PDesper_tiempo_txt.TabIndex = 3
+        '
+        'PDesper_descri_txt
+        '
+        Me.PDesper_descri_txt.Location = New System.Drawing.Point(172, 22)
+        Me.PDesper_descri_txt.Name = "PDesper_descri_txt"
+        Me.PDesper_descri_txt.Size = New System.Drawing.Size(201, 23)
+        Me.PDesper_descri_txt.TabIndex = 3
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(10, 54)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(150, 15)
+        Me.Label27.TabIndex = 0
+        Me.Label27.Text = "Tiempo estimado (en días):"
+        '
+        'PVehiculo_gbx
+        '
+        Me.PVehiculo_gbx.Controls.Add(Me.Ppaso2_btn)
+        Me.PVehiculo_gbx.Controls.Add(Me.PMoto_opt)
+        Me.PVehiculo_gbx.Controls.Add(Me.Label21)
+        Me.PVehiculo_gbx.Controls.Add(Me.PAuto_opt)
+        Me.PVehiculo_gbx.Controls.Add(Me.PPatenteA_cbo)
+        Me.PVehiculo_gbx.Controls.Add(Me.Label22)
+        Me.PVehiculo_gbx.Controls.Add(Me.Label23)
+        Me.PVehiculo_gbx.Controls.Add(Me.PMarcaA_cbo)
+        Me.PVehiculo_gbx.Controls.Add(Me.PMarcaM_cbo)
+        Me.PVehiculo_gbx.Controls.Add(Me.PPatenteM_cbo)
+        Me.PVehiculo_gbx.Location = New System.Drawing.Point(11, 90)
+        Me.PVehiculo_gbx.Name = "PVehiculo_gbx"
+        Me.PVehiculo_gbx.Size = New System.Drawing.Size(914, 75)
+        Me.PVehiculo_gbx.TabIndex = 5
+        Me.PVehiculo_gbx.TabStop = False
+        Me.PVehiculo_gbx.Text = "Datos del Vehiculo:"
+        Me.PVehiculo_gbx.Visible = False
+        '
+        'Ppaso2_btn
+        '
+        Me.Ppaso2_btn.Location = New System.Drawing.Point(640, 43)
+        Me.Ppaso2_btn.Name = "Ppaso2_btn"
+        Me.Ppaso2_btn.Size = New System.Drawing.Size(93, 23)
+        Me.Ppaso2_btn.TabIndex = 3
+        Me.Ppaso2_btn.Text = "Siguiente ->"
+        Me.Ppaso2_btn.UseVisualStyleBackColor = True
+        '
+        'PMoto_opt
+        '
+        Me.PMoto_opt.AutoSize = True
+        Me.PMoto_opt.Location = New System.Drawing.Point(252, 16)
+        Me.PMoto_opt.Name = "PMoto_opt"
+        Me.PMoto_opt.Size = New System.Drawing.Size(54, 19)
+        Me.PMoto_opt.TabIndex = 1
+        Me.PMoto_opt.Text = "Moto"
+        Me.PMoto_opt.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(9, 18)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(114, 15)
+        Me.Label21.TabIndex = 0
+        Me.Label21.Text = "Seleccione Vehiculo:"
+        '
+        'PAuto_opt
+        '
+        Me.PAuto_opt.AutoSize = True
+        Me.PAuto_opt.Checked = True
+        Me.PAuto_opt.Location = New System.Drawing.Point(149, 16)
+        Me.PAuto_opt.Name = "PAuto_opt"
+        Me.PAuto_opt.Size = New System.Drawing.Size(81, 19)
+        Me.PAuto_opt.TabIndex = 1
+        Me.PAuto_opt.TabStop = True
+        Me.PAuto_opt.Text = "Automovil"
+        Me.PAuto_opt.UseVisualStyleBackColor = True
+        '
+        'PPatenteA_cbo
+        '
+        Me.PPatenteA_cbo.FormattingEnabled = True
+        Me.PPatenteA_cbo.Location = New System.Drawing.Point(492, 43)
+        Me.PPatenteA_cbo.Name = "PPatenteA_cbo"
+        Me.PPatenteA_cbo.Size = New System.Drawing.Size(135, 23)
+        Me.PPatenteA_cbo.TabIndex = 2
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(9, 46)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(148, 15)
+        Me.Label22.TabIndex = 0
+        Me.Label22.Text = "Seleccione Marca/Modelo:"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(397, 46)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(89, 15)
+        Me.Label23.TabIndex = 0
+        Me.Label23.Text = "Nro de Patente:"
+        '
+        'PMarcaA_cbo
+        '
+        Me.PMarcaA_cbo.FormattingEnabled = True
+        Me.PMarcaA_cbo.Location = New System.Drawing.Point(160, 43)
+        Me.PMarcaA_cbo.Name = "PMarcaA_cbo"
+        Me.PMarcaA_cbo.Size = New System.Drawing.Size(210, 23)
+        Me.PMarcaA_cbo.TabIndex = 2
+        '
+        'PMarcaM_cbo
+        '
+        Me.PMarcaM_cbo.FormattingEnabled = True
+        Me.PMarcaM_cbo.Location = New System.Drawing.Point(160, 43)
+        Me.PMarcaM_cbo.Name = "PMarcaM_cbo"
+        Me.PMarcaM_cbo.Size = New System.Drawing.Size(210, 23)
+        Me.PMarcaM_cbo.TabIndex = 2
+        '
+        'PPatenteM_cbo
+        '
+        Me.PPatenteM_cbo.FormattingEnabled = True
+        Me.PPatenteM_cbo.Location = New System.Drawing.Point(492, 43)
+        Me.PPatenteM_cbo.Name = "PPatenteM_cbo"
+        Me.PPatenteM_cbo.Size = New System.Drawing.Size(135, 23)
+        Me.PPatenteM_cbo.TabIndex = 2
+        '
+        'PRepuesto_gbx
+        '
+        Me.PRepuesto_gbx.Controls.Add(Me.Ppaso5_btn)
+        Me.PRepuesto_gbx.Controls.Add(Me.Ppaso4_btn)
+        Me.PRepuesto_gbx.Controls.Add(Me.PRepuesto_cbo)
+        Me.PRepuesto_gbx.Controls.Add(Me.Label25)
+        Me.PRepuesto_gbx.Location = New System.Drawing.Point(11, 252)
+        Me.PRepuesto_gbx.Name = "PRepuesto_gbx"
+        Me.PRepuesto_gbx.Size = New System.Drawing.Size(914, 52)
+        Me.PRepuesto_gbx.TabIndex = 5
+        Me.PRepuesto_gbx.TabStop = False
+        Me.PRepuesto_gbx.Text = "Datos del Cliente:"
+        Me.PRepuesto_gbx.Visible = False
+        '
+        'Ppaso5_btn
+        '
+        Me.Ppaso5_btn.Location = New System.Drawing.Point(541, 16)
+        Me.Ppaso5_btn.Name = "Ppaso5_btn"
+        Me.Ppaso5_btn.Size = New System.Drawing.Size(143, 23)
+        Me.Ppaso5_btn.TabIndex = 4
+        Me.Ppaso5_btn.Text = "<- Añadir Desperfecto"
+        Me.Ppaso5_btn.UseVisualStyleBackColor = True
+        '
+        'Ppaso4_btn
+        '
+        Me.Ppaso4_btn.Location = New System.Drawing.Point(386, 16)
+        Me.Ppaso4_btn.Name = "Ppaso4_btn"
+        Me.Ppaso4_btn.Size = New System.Drawing.Size(128, 23)
+        Me.Ppaso4_btn.TabIndex = 3
+        Me.Ppaso4_btn.Text = "Añadir Repuesto ->"
+        Me.Ppaso4_btn.UseVisualStyleBackColor = True
+        '
+        'PRepuesto_cbo
+        '
+        Me.PRepuesto_cbo.FormattingEnabled = True
+        Me.PRepuesto_cbo.Location = New System.Drawing.Point(125, 17)
+        Me.PRepuesto_cbo.Name = "PRepuesto_cbo"
+        Me.PRepuesto_cbo.Size = New System.Drawing.Size(236, 23)
+        Me.PRepuesto_cbo.TabIndex = 2
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(13, 20)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(106, 15)
+        Me.Label25.TabIndex = 0
+        Me.Label25.Text = "Repuesto a utilizar:"
+        '
+        'PCliente_gbx
+        '
+        Me.PCliente_gbx.Controls.Add(Me.Ppaso1_btn)
+        Me.PCliente_gbx.Controls.Add(Me.PCliente_cbo)
+        Me.PCliente_gbx.Controls.Add(Me.Label29)
+        Me.PCliente_gbx.Location = New System.Drawing.Point(11, 32)
+        Me.PCliente_gbx.Name = "PCliente_gbx"
+        Me.PCliente_gbx.Size = New System.Drawing.Size(914, 52)
+        Me.PCliente_gbx.TabIndex = 5
+        Me.PCliente_gbx.TabStop = False
+        Me.PCliente_gbx.Text = "Datos del Cliente:"
+        '
+        'Ppaso1_btn
+        '
+        Me.Ppaso1_btn.Location = New System.Drawing.Point(367, 16)
+        Me.Ppaso1_btn.Name = "Ppaso1_btn"
+        Me.Ppaso1_btn.Size = New System.Drawing.Size(93, 23)
+        Me.Ppaso1_btn.TabIndex = 3
+        Me.Ppaso1_btn.Text = "Siguiente ->"
+        Me.Ppaso1_btn.UseVisualStyleBackColor = True
+        '
+        'PCliente_cbo
+        '
+        Me.PCliente_cbo.FormattingEnabled = True
+        Me.PCliente_cbo.Location = New System.Drawing.Point(125, 16)
+        Me.PCliente_cbo.Name = "PCliente_cbo"
+        Me.PCliente_cbo.Size = New System.Drawing.Size(210, 23)
+        Me.PCliente_cbo.TabIndex = 2
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(6, 20)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(109, 15)
+        Me.Label29.TabIndex = 0
+        Me.Label29.Text = "Seleccione Cliente: "
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(366, 11)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(205, 15)
+        Me.Label28.TabIndex = 4
+        Me.Label28.Text = "<< Creando Nuevo Presupuesto... >>"
+        '
+        'Busqueda
+        '
+        Me.Busqueda.Location = New System.Drawing.Point(4, 24)
+        Me.Busqueda.Name = "Busqueda"
+        Me.Busqueda.Padding = New System.Windows.Forms.Padding(3)
+        Me.Busqueda.Size = New System.Drawing.Size(936, 357)
+        Me.Busqueda.TabIndex = 1
+        Me.Busqueda.Text = "<< Presupuesto >>"
+        Me.Busqueda.UseVisualStyleBackColor = True
+        '
         'Panel6
         '
-        Me.Panel6.Controls.Add(Me.Button5)
-        Me.Panel6.Controls.Add(Me.Button4)
-        Me.Panel6.Controls.Add(Me.ComboBox2)
-        Me.Panel6.Controls.Add(Me.DateTimePicker1)
-        Me.Panel6.Controls.Add(Me.TextBox12)
+        Me.Panel6.Controls.Add(Me.PCrear_btn)
+        Me.Panel6.Controls.Add(Me.PBuscar_btn)
+        Me.Panel6.Controls.Add(Me.PGCliente_cbo)
+        Me.Panel6.Controls.Add(Me.PGFecha_dtp)
+        Me.Panel6.Controls.Add(Me.PGNro_txt)
         Me.Panel6.Controls.Add(Me.Label13)
         Me.Panel6.Controls.Add(Me.Label12)
         Me.Panel6.Controls.Add(Me.Label11)
@@ -723,21 +1091,48 @@ Partial Class FrPrincipal
         Me.Panel6.Size = New System.Drawing.Size(939, 100)
         Me.Panel6.TabIndex = 0
         '
-        'DateTimePicker1
+        'PCrear_btn
         '
-        Me.DateTimePicker1.CustomFormat = "dd/mm/yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(164, 39)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(130, 23)
-        Me.DateTimePicker1.TabIndex = 3
+        Me.PCrear_btn.Location = New System.Drawing.Point(578, 25)
+        Me.PCrear_btn.Name = "PCrear_btn"
+        Me.PCrear_btn.Size = New System.Drawing.Size(139, 54)
+        Me.PCrear_btn.TabIndex = 5
+        Me.PCrear_btn.Text = "Crear Nuevo"
+        Me.PCrear_btn.UseVisualStyleBackColor = True
         '
-        'TextBox12
+        'PBuscar_btn
         '
-        Me.TextBox12.Location = New System.Drawing.Point(164, 68)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(130, 23)
-        Me.TextBox12.TabIndex = 2
+        Me.PBuscar_btn.Location = New System.Drawing.Point(414, 25)
+        Me.PBuscar_btn.Name = "PBuscar_btn"
+        Me.PBuscar_btn.Size = New System.Drawing.Size(139, 54)
+        Me.PBuscar_btn.TabIndex = 5
+        Me.PBuscar_btn.Text = "Buscar"
+        Me.PBuscar_btn.UseVisualStyleBackColor = True
+        '
+        'PGCliente_cbo
+        '
+        Me.PGCliente_cbo.FormattingEnabled = True
+        Me.PGCliente_cbo.Location = New System.Drawing.Point(164, 10)
+        Me.PGCliente_cbo.Name = "PGCliente_cbo"
+        Me.PGCliente_cbo.Size = New System.Drawing.Size(130, 23)
+        Me.PGCliente_cbo.TabIndex = 4
+        '
+        'PGFecha_dtp
+        '
+        Me.PGFecha_dtp.CustomFormat = "dd/mm/yyyy"
+        Me.PGFecha_dtp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.PGFecha_dtp.Location = New System.Drawing.Point(164, 39)
+        Me.PGFecha_dtp.Name = "PGFecha_dtp"
+        Me.PGFecha_dtp.Size = New System.Drawing.Size(130, 23)
+        Me.PGFecha_dtp.TabIndex = 3
+        '
+        'PGNro_txt
+        '
+        Me.PGNro_txt.Location = New System.Drawing.Point(164, 68)
+        Me.PGNro_txt.Name = "PGNro_txt"
+        Me.PGNro_txt.ReadOnly = True
+        Me.PGNro_txt.Size = New System.Drawing.Size(130, 23)
+        Me.PGNro_txt.TabIndex = 2
         '
         'Label13
         '
@@ -824,6 +1219,7 @@ Partial Class FrPrincipal
         Me.Desperfecto_btn.TabIndex = 0
         Me.Desperfecto_btn.Text = "<< Desperfecto >>"
         Me.Desperfecto_btn.UseVisualStyleBackColor = True
+        Me.Desperfecto_btn.Visible = False
         '
         'Repuestos_btn
         '
@@ -956,207 +1352,6 @@ Partial Class FrPrincipal
         Me.veh_opt.Text = "Vehiculo"
         Me.veh_opt.UseVisualStyleBackColor = True
         '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(164, 10)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(130, 23)
-        Me.ComboBox2.TabIndex = 4
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(414, 25)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(139, 54)
-        Me.Button4.TabIndex = 5
-        Me.Button4.Text = "Buscar"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(578, 25)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(139, 54)
-        Me.Button5.TabIndex = 5
-        Me.Button5.Text = "Crear Nuevo"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'TabPresup
-        '
-        Me.TabPresup.Controls.Add(Me.Crear)
-        Me.TabPresup.Controls.Add(Me.Ver)
-        Me.TabPresup.Location = New System.Drawing.Point(3, 109)
-        Me.TabPresup.Name = "TabPresup"
-        Me.TabPresup.SelectedIndex = 0
-        Me.TabPresup.Size = New System.Drawing.Size(944, 385)
-        Me.TabPresup.TabIndex = 1
-        '
-        'Crear
-        '
-        Me.Crear.Controls.Add(Me.TextBox3)
-        Me.Crear.Controls.Add(Me.TextBox2)
-        Me.Crear.Controls.Add(Me.TextBox1)
-        Me.Crear.Controls.Add(Me.PRepuesto_cbo)
-        Me.Crear.Controls.Add(Me.PPatente_cbo)
-        Me.Crear.Controls.Add(Me.PMarcaMod_cbo)
-        Me.Crear.Controls.Add(Me.RadioButton2)
-        Me.Crear.Controls.Add(Me.Label25)
-        Me.Crear.Controls.Add(Me.RadioButton1)
-        Me.Crear.Controls.Add(Me.Label23)
-        Me.Crear.Controls.Add(Me.Label22)
-        Me.Crear.Controls.Add(Me.Label27)
-        Me.Crear.Controls.Add(Me.Label26)
-        Me.Crear.Controls.Add(Me.Label24)
-        Me.Crear.Controls.Add(Me.Label21)
-        Me.Crear.Location = New System.Drawing.Point(4, 24)
-        Me.Crear.Name = "Crear"
-        Me.Crear.Padding = New System.Windows.Forms.Padding(3)
-        Me.Crear.Size = New System.Drawing.Size(936, 357)
-        Me.Crear.TabIndex = 0
-        Me.Crear.Text = "<< Crear Presupuesto >>"
-        Me.Crear.UseVisualStyleBackColor = True
-        '
-        'Ver
-        '
-        Me.Ver.Location = New System.Drawing.Point(4, 24)
-        Me.Ver.Name = "Ver"
-        Me.Ver.Padding = New System.Windows.Forms.Padding(3)
-        Me.Ver.Size = New System.Drawing.Size(936, 357)
-        Me.Ver.TabIndex = 1
-        Me.Ver.Text = "<< Presupuesto >>"
-        Me.Ver.UseVisualStyleBackColor = True
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(11, 14)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(114, 15)
-        Me.Label21.TabIndex = 0
-        Me.Label21.Text = "Seleccione Vehiculo:"
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(151, 12)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(81, 19)
-        Me.RadioButton1.TabIndex = 1
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Automovil"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(254, 12)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(54, 19)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.Text = "Moto"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'PMarcaMod_cbo
-        '
-        Me.PMarcaMod_cbo.FormattingEnabled = True
-        Me.PMarcaMod_cbo.Location = New System.Drawing.Point(164, 57)
-        Me.PMarcaMod_cbo.Name = "PMarcaMod_cbo"
-        Me.PMarcaMod_cbo.Size = New System.Drawing.Size(210, 23)
-        Me.PMarcaMod_cbo.TabIndex = 2
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(11, 60)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(148, 15)
-        Me.Label22.TabIndex = 0
-        Me.Label22.Text = "Seleccione Marca/Modelo:"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(401, 60)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(89, 15)
-        Me.Label23.TabIndex = 0
-        Me.Label23.Text = "Nro de Patente:"
-        '
-        'PPatente_cbo
-        '
-        Me.PPatente_cbo.FormattingEnabled = True
-        Me.PPatente_cbo.Location = New System.Drawing.Point(496, 57)
-        Me.PPatente_cbo.Name = "PPatente_cbo"
-        Me.PPatente_cbo.Size = New System.Drawing.Size(135, 23)
-        Me.PPatente_cbo.TabIndex = 2
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(173, 117)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(201, 23)
-        Me.TextBox1.TabIndex = 3
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(11, 120)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(157, 15)
-        Me.Label24.TabIndex = 0
-        Me.Label24.Text = "Descripcion del Desperfecto:"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(18, 174)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(106, 15)
-        Me.Label25.TabIndex = 0
-        Me.Label25.Text = "Repuesto a utilizar:"
-        '
-        'PRepuesto_cbo
-        '
-        Me.PRepuesto_cbo.FormattingEnabled = True
-        Me.PRepuesto_cbo.Location = New System.Drawing.Point(130, 171)
-        Me.PRepuesto_cbo.Name = "PRepuesto_cbo"
-        Me.PRepuesto_cbo.Size = New System.Drawing.Size(135, 23)
-        Me.PRepuesto_cbo.TabIndex = 2
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(484, 117)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(133, 23)
-        Me.TextBox2.TabIndex = 3
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(786, 117)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(133, 23)
-        Me.TextBox3.TabIndex = 3
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(392, 120)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(86, 15)
-        Me.Label26.TabIndex = 0
-        Me.Label26.Text = "Mano de Obra:"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(640, 120)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(102, 15)
-        Me.Label27.TabIndex = 0
-        Me.Label27.Text = "Tiempo Estimado:"
-        '
         'FrPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1190,6 +1385,17 @@ Partial Class FrPrincipal
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Presupuesto.ResumeLayout(False)
+        Me.TabPresup.ResumeLayout(False)
+        Me.Crear.ResumeLayout(False)
+        Me.Crear.PerformLayout()
+        Me.PDesperfecto_gbx.ResumeLayout(False)
+        Me.PDesperfecto_gbx.PerformLayout()
+        Me.PVehiculo_gbx.ResumeLayout(False)
+        Me.PVehiculo_gbx.PerformLayout()
+        Me.PRepuesto_gbx.ResumeLayout(False)
+        Me.PRepuesto_gbx.PerformLayout()
+        Me.PCliente_gbx.ResumeLayout(False)
+        Me.PCliente_gbx.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -1197,9 +1403,6 @@ Partial Class FrPrincipal
         Me.Panel2.PerformLayout()
         Me.ControlInterno_pnl.ResumeLayout(False)
         Me.ControlInterno_pnl.PerformLayout()
-        Me.TabPresup.ResumeLayout(False)
-        Me.Crear.ResumeLayout(False)
-        Me.Crear.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1274,7 +1477,7 @@ Partial Class FrPrincipal
     Friend WithEvents Label17 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents PGNro_txt As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
@@ -1286,26 +1489,43 @@ Partial Class FrPrincipal
     Friend WithEvents SoloMotos_dgv As DataGridView
     Friend WithEvents Label20 As Label
     Friend WithEvents Label19 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents PGFecha_dtp As DateTimePicker
     Friend WithEvents TabPresup As TabControl
     Friend WithEvents Crear As TabPage
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents PDesper_tiempo_txt As TextBox
+    Friend WithEvents PDesper_Obra_txt As TextBox
+    Friend WithEvents PDesper_descri_txt As TextBox
     Friend WithEvents PRepuesto_cbo As ComboBox
-    Friend WithEvents PPatente_cbo As ComboBox
-    Friend WithEvents PMarcaMod_cbo As ComboBox
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents PPatenteA_cbo As ComboBox
+    Friend WithEvents PMarcaA_cbo As ComboBox
+    Friend WithEvents PMoto_opt As RadioButton
     Friend WithEvents Label25 As Label
-    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents PAuto_opt As RadioButton
     Friend WithEvents Label23 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents Label27 As Label
     Friend WithEvents Label26 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents Ver As TabPage
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Busqueda As TabPage
+    Friend WithEvents PCrear_btn As Button
+    Friend WithEvents PBuscar_btn As Button
+    Friend WithEvents PGCliente_cbo As ComboBox
+    Friend WithEvents PTotal_lbl As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents PFinalizar_btn As Button
+    Friend WithEvents PDesperfecto_gbx As GroupBox
+    Friend WithEvents Ppaso3_btn As Button
+    Friend WithEvents PVehiculo_gbx As GroupBox
+    Friend WithEvents Ppaso2_btn As Button
+    Friend WithEvents PRepuesto_gbx As GroupBox
+    Friend WithEvents Ppaso5_btn As Button
+    Friend WithEvents Ppaso4_btn As Button
+    Friend WithEvents PCliente_gbx As GroupBox
+    Friend WithEvents Ppaso1_btn As Button
+    Friend WithEvents PCliente_cbo As ComboBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents PMarcaM_cbo As ComboBox
+    Friend WithEvents PPatenteM_cbo As ComboBox
 End Class
